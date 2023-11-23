@@ -35,6 +35,7 @@ struct MaleView: View {
                     .font(.title)
                     .foregroundColor(.white)
                 
+                // Combine the two HStacks for better readability
                 HStack {
                     Picker("Feet", selection: $feet) {
                         ForEach(3..<8) {
@@ -54,6 +55,7 @@ struct MaleView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                 }
+                .padding(.bottom)
                 
                 HStack {
                     Picker("Weight (lbs)", selection: $weightInPounds) {
@@ -74,6 +76,7 @@ struct MaleView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                 }
+                .padding(.bottom)
                 
                 Text("Select Activity Level:")
                     .foregroundColor(.white)
@@ -82,12 +85,9 @@ struct MaleView: View {
                 Slider(value: $selectedActivityLevel, in: 1...5, step: 1)
                     .padding()
                     .foregroundColor(.white)
-                //.background(Color.blue)
                     .cornerRadius(10)
-
+                
                 VStack {
-                    //Spacer() // Add Spacer to push text to the middle
-                    
                     Text("Activity Level:")
                         .foregroundColor(.white)
                         .padding()
@@ -96,10 +96,10 @@ struct MaleView: View {
                         .foregroundColor(.white)
                         .padding()
                     
-                    Spacer() // Add another Spacer for additional space
-                
+                    Spacer() // Add Spacer for additional space
                     
                     Button("Calculate") {
+                        // Consider extracting this logic into a separate function for better readability
                         var maleCalculations = MaleCalculations(feet: feet, inches: inches, weightInPounds: weightInPounds, age: age)
                         maleCalculations.calculateResults(activityLevel: Double(Int(selectedActivityLevel)))
                         bmrResult = maleCalculations.bmrResult
@@ -111,28 +111,30 @@ struct MaleView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     
-                    Text("Calories burned naturally (BMR): \(bmrResult)")
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    Text("BMI: \(bmiResult)")
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    Text("Active Metabolic Rate (AMR): \(amrResult)")
-                        .foregroundColor(.white)
-                        .padding()
+                    // Group the result texts for better organization
+                    Group {
+                        Text("Calories burned naturally (BMR): \(bmrResult)")
+                            .foregroundColor(.white)
+                            .padding()
+                        
+                        Text("BMI: \(bmiResult)")
+                            .foregroundColor(.white)
+                            .padding()
+                        
+                        Text("Active Metabolic Rate (AMR): \(amrResult)")
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .padding()
                 }
-                
-                .padding()
                 .navigationBarTitle("Male Input")
             }
         }
     }
-    
-    struct MaleView_Previews: PreviewProvider {
-        static var previews: some View {
-            MaleView()
-        }
+}
+
+struct MaleView_Previews: PreviewProvider {
+    static var previews: some View {
+        MaleView()
     }
 }

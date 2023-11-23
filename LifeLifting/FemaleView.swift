@@ -5,7 +5,6 @@
 //  Created by Justyce Graham on 11/18/23.
 //
 
-
 import SwiftUI
 
 struct FemaleView: View {
@@ -43,19 +42,18 @@ struct FemaleView: View {
                             Text("\($0) ft")
                         }
                     }
+                    .pickerStyle(WheelPickerStyle()) // Use WheelPickerStyle for a more fitting style
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
                     
                     Picker("Inches", selection: $inches) {
                         ForEach(0..<12) {
                             Text("\($0) in")
                         }
                     }
+                    .pickerStyle(WheelPickerStyle())
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
                 }
+                .padding(.bottom)
                 
                 HStack {
                     Picker("Weight (lbs)", selection: $weightInPounds) {
@@ -63,19 +61,18 @@ struct FemaleView: View {
                             Text("\($0) lbs")
                         }
                     }
+                    .pickerStyle(WheelPickerStyle())
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
                     
                     Picker("Age", selection: $age) {
                         ForEach(18..<100) {
                             Text("\($0) years")
                         }
                     }
+                    .pickerStyle(WheelPickerStyle())
                     .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
                 }
+                .padding(.bottom)
                 
                 Text("Select Activity Level:")
                     .foregroundColor(.white)
@@ -84,11 +81,9 @@ struct FemaleView: View {
                 Slider(value: $selectedActivityLevel, in: 1...5, step: 1)
                     .padding()
                     .foregroundColor(.white)
-                //.background(Color.blue)
                     .cornerRadius(10)
+                
                 VStack {
-                    //Spacer() // Add Spacer to push text to the middle
-                    
                     Text("Activity Level:")
                         .foregroundColor(.white)
                         .padding()
@@ -97,11 +92,11 @@ struct FemaleView: View {
                         .foregroundColor(.white)
                         .padding()
                     
-                    Spacer() // Add another Spacer for additional space
-                
+                    Spacer() // Add Spacer for additional space
                     
                     Button("Calculate") {
-                        var femaleCalculations = MaleCalculations(feet: feet, inches: inches, weightInPounds: weightInPounds, age: age)
+                        // Consider extracting this logic into a separate function for better readability
+                        var femaleCalculations = FemaleCalculations(feet: feet, inches: inches, weightInPounds: weightInPounds, age: age)
                         femaleCalculations.calculateResults(activityLevel: Double(Int(selectedActivityLevel)))
                         bmrResult = femaleCalculations.bmrResult
                         bmiResult = femaleCalculations.bmiResult
@@ -112,21 +107,23 @@ struct FemaleView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     
-                    Text("Calories burned naturally (BMR): \(bmrResult)")
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    Text("BMI: \(bmiResult)")
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    Text("Active Metabolic Rate (AMR): \(amrResult)")
-                        .foregroundColor(.white)
-                        .padding()
+                    // Group the result texts for better organization
+                    Group {
+                        Text("Calories burned naturally (BMR): \(bmrResult)")
+                            .foregroundColor(.white)
+                            .padding()
+                        
+                        Text("BMI: \(bmiResult)")
+                            .foregroundColor(.white)
+                            .padding()
+                        
+                        Text("Active Metabolic Rate (AMR): \(amrResult)")
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .padding()
                 }
-                
-                .padding()
-                .navigationBarTitle("Male Input")
+                .navigationBarTitle("Female Input")
             }
         }
     }
