@@ -59,7 +59,7 @@ struct SignUpView: View {
                         .cornerRadius(10)
                     NavigationLink("Next",
                                    destination: InfoView())
-
+                    
                     
                 }
             }

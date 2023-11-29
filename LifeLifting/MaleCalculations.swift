@@ -12,28 +12,28 @@ struct MaleCalculations {
     var inches: Int
     var weightInPounds: Int
     var age: Int
-
+    
     var bmrResult: Double = 0
     var bmiResult: Double = 0
     var amrResult: Double = 0
-
+    
     mutating func calculateResults(activityLevel: Double) {
         // Convert height to centimeters
         let feetInMeters = Double(feet) * 0.3048
         let inchesInMeters = Double(inches) * 0.0254
         let heightInMeters = feetInMeters + inchesInMeters
-
+        
         // Convert weight to kilograms
         let weightInKg = Double(weightInPounds) * 0.453592
-
+        
         // BMR Calculation
         let bmr = 66.47 + (13.75 * weightInKg) + (5.003 * heightInMeters * 100) - (6.755 * Double(age))
         bmrResult = bmr
-
+        
         // BMI Calculation
         let bmi = weightInKg / (heightInMeters * heightInMeters)
         bmiResult = bmi
-
+        
         // AMR Calculation based on activity level
         switch activityLevel {
         case 1: amrResult = bmr * 1.2 // Sedentary (little or no exercise)
