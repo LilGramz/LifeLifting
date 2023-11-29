@@ -17,9 +17,10 @@
 		3325A34E2B0898A100E5FCAB /* FemaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A34D2B0898A100E5FCAB /* FemaleView.swift */; };
 		3325A3502B0B593200E5FCAB /* MaleCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A34F2B0B593200E5FCAB /* MaleCalculations.swift */; };
 		3325A3522B0B956300E5FCAB /* FemaleCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A3512B0B956300E5FCAB /* FemaleCalculations.swift */; };
-		3325A3562B0F572900E5FCAB /* CalanderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A3552B0F572900E5FCAB /* CalanderView.swift */; };
+		3325A3562B0F572900E5FCAB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A3552B0F572900E5FCAB /* CalendarView.swift */; };
 		3325A3582B0F64B900E5FCAB /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A3572B0F64B900E5FCAB /* AccountSettingsView.swift */; };
 		3325A35A2B0F64DD00E5FCAB /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3325A3592B0F64DD00E5FCAB /* HomePageView.swift */; };
+		33BB12D12B17A0C500D7AE0B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BB12D02B17A0C500D7AE0B /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +35,10 @@
 		3325A34D2B0898A100E5FCAB /* FemaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FemaleView.swift; sourceTree = "<group>"; };
 		3325A34F2B0B593200E5FCAB /* MaleCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaleCalculations.swift; sourceTree = "<group>"; };
 		3325A3512B0B956300E5FCAB /* FemaleCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FemaleCalculations.swift; sourceTree = "<group>"; };
-		3325A3552B0F572900E5FCAB /* CalanderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderView.swift; sourceTree = "<group>"; };
+		3325A3552B0F572900E5FCAB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		3325A3572B0F64B900E5FCAB /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		3325A3592B0F64DD00E5FCAB /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		33BB12D02B17A0C500D7AE0B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +75,12 @@
 				3325A3492B087D5B00E5FCAB /* LogInView.swift */,
 				3325A3452B087A5E00E5FCAB /* SignUpView.swift */,
 				3325A3472B087AB900E5FCAB /* InfoView.swift */,
+				33BB12D02B17A0C500D7AE0B /* CustomTabBar.swift */,
 				3325A34B2B08989400E5FCAB /* MaleView.swift */,
 				3325A34F2B0B593200E5FCAB /* MaleCalculations.swift */,
 				3325A3512B0B956300E5FCAB /* FemaleCalculations.swift */,
 				3325A34D2B0898A100E5FCAB /* FemaleView.swift */,
-				3325A3552B0F572900E5FCAB /* CalanderView.swift */,
+				3325A3552B0F572900E5FCAB /* CalendarView.swift */,
 				3325A3592B0F64DD00E5FCAB /* HomePageView.swift */,
 				3325A3572B0F64B900E5FCAB /* AccountSettingsView.swift */,
 				3325A3392B081B3700E5FCAB /* Assets.xcassets */,
@@ -168,11 +171,12 @@
 				3325A3482B087AB900E5FCAB /* InfoView.swift in Sources */,
 				3325A34E2B0898A100E5FCAB /* FemaleView.swift in Sources */,
 				3325A34A2B087D5B00E5FCAB /* LogInView.swift in Sources */,
+				33BB12D12B17A0C500D7AE0B /* CustomTabBar.swift in Sources */,
 				3325A3362B081B3600E5FCAB /* LifeLiftingApp.swift in Sources */,
 				3325A3502B0B593200E5FCAB /* MaleCalculations.swift in Sources */,
 				3325A34C2B08989400E5FCAB /* MaleView.swift in Sources */,
 				3325A3522B0B956300E5FCAB /* FemaleCalculations.swift in Sources */,
-				3325A3562B0F572900E5FCAB /* CalanderView.swift in Sources */,
+				3325A3562B0F572900E5FCAB /* CalendarView.swift in Sources */,
 				3325A35A2B0F64DD00E5FCAB /* HomePageView.swift in Sources */,
 				3325A3582B0F64B900E5FCAB /* AccountSettingsView.swift in Sources */,
 			);

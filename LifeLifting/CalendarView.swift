@@ -1,5 +1,5 @@
 //
-//  CalanderView.swift
+//  CalendarView.swift
 //  LifeLifting
 //
 //  Created by Justyce Graham on 11/23/23.
@@ -7,7 +7,12 @@
 
 import SwiftUI
 
-struct CalanderView: View {
+struct CalendarView: View {
+    @State private var selectedTab: Tab = .calendar_circle
+    
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     var body: some View {
         
         
@@ -17,17 +22,14 @@ struct CalanderView: View {
         
         
         
-        HStack{
-            
-            Image(systemName: "calendar.circle.fill")
-            Image(systemName: "house")
-            Image(systemName: "person")
-            
+        VStack {
+            Spacer()
+            CustomTabBar(selectedTab: $selectedTab)
         }
         
     }
 }
 
 #Preview {
-    CalanderView()
+    CalendarView()
 }
