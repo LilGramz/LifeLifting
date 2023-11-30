@@ -112,7 +112,7 @@ struct FemaleView: View {
                         Text("Calories burned naturally (BMR): \(bmrResult)")
                             .foregroundColor(.white)
                             .padding()
-                        
+                         
                         Text("BMI: \(bmiResult)")
                             .foregroundColor(.white)
                             .padding()

@@ -17,7 +17,7 @@ struct FemaleCalculations {
     var bmiResult: Double = 0
     var amrResult: Double = 0
     
-    
+     
     mutating func calculateResults(activityLevel: Double) {
         // Convert height to meters
         let feetInMeters = Double(feet) * 0.3048

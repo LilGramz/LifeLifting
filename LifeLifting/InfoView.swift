@@ -12,7 +12,7 @@ struct InfoView: View {
             ZStack {
                 Color(red: 0.28235294, green: 0.07843137, blue: 0.17647059)
                     .ignoresSafeArea()
-                
+                 
                 VStack {
                     Text("Your Body, Your Rules, Your Life Lifting Journey.")
                         .font(.largeTitle)

@@ -31,6 +31,8 @@ struct MaleView: View {
                 .ignoresSafeArea()
             
             VStack {
+                
+                Spacer()
                 Text("Enter your information:")
                     .font(.title)
                     .foregroundColor(.white)
@@ -81,7 +83,7 @@ struct MaleView: View {
                 Text("Select Activity Level:")
                     .foregroundColor(.white)
                     .padding()
-                
+                 
                 Slider(value: $selectedActivityLevel, in: 1...5, step: 1)
                     .padding()
                     .foregroundColor(.white)

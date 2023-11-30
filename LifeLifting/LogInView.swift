@@ -33,7 +33,7 @@ struct LogInView: View {
                         .font(.largeTitle)
                         .bold()
                         .padding()
-                    
+                     
                     TextField("Username", text: $username)
                         .padding()
                         .frame(width: 300, height: 50)

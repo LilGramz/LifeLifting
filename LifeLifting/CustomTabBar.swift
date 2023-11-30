@@ -12,7 +12,7 @@ enum Tab: String, CaseIterable{
     case house
     case person
 }
-
+ 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
     private var fillImage: String {

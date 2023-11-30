@@ -5,7 +5,7 @@
 //  Created by Lyah Morales
 //
 import SwiftUI
-
+ 
 struct SignUpView: View {
     
     @State private var name = ""

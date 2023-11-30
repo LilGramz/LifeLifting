@@ -22,7 +22,7 @@ struct MaleCalculations {
         let feetInMeters = Double(feet) * 0.3048
         let inchesInMeters = Double(inches) * 0.0254
         let heightInMeters = feetInMeters + inchesInMeters
-        
+         
         // Convert weight to kilograms
         let weightInKg = Double(weightInPounds) * 0.453592
         

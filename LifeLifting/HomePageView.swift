@@ -35,7 +35,7 @@ struct HomePageView: View {
             VStack{
                 
                 Text( "Welcome Back")
-                
+                 
                     .foregroundColor(Color(red: 1.01666667, green: 0.89166667, blue: 0.95416667))
                     .font(.title)
                     .multilineTextAlignment(.center)
