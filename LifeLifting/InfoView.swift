@@ -17,7 +17,7 @@ struct InfoView: View {
                     Text("Your Body, Your Rules, Your Life Lifting Journey.")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
-                        .foregroundColor(Color(red: 0.96, green: 0.523, blue: 0.454))
+                        .foregroundColor(Color(.softPeach))
                         .multilineTextAlignment(.center)
                     
                     Image("Home screen")
@@ -48,6 +48,7 @@ struct InfoView: View {
                 }
             }
             .navigationTitle("Gender Choice")
+            
         }
     }
 }

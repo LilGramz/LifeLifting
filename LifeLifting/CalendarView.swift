@@ -14,14 +14,20 @@ struct CalendarView: View {
         UITabBar.appearance().isHidden = true
     }
     var body: some View {
-        
-        
-        
-        MultiDatePicker("Label", selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Binding<Set<DateComponents>>@*/.constant([])/*@END_MENU_TOKEN@*/)
-        
-        
-        
-        
+        VStack{
+            ZStack {
+                Color(.dentureGlue)
+                    .ignoresSafeArea()
+                
+                VStack{
+                    
+                    MultiDatePicker("Label", selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Binding<Set<DateComponents>>@*/.constant([])/*@END_MENU_TOKEN@*/)
+                    
+                    
+                }
+                
+            }
+        }
         VStack {
             Spacer()
             CustomTabBar(selectedTab: $selectedTab)

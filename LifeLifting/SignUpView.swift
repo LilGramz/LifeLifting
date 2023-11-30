@@ -7,18 +7,14 @@
 import SwiftUI
  
 struct SignUpView: View {
-    
     @State private var name = ""
     @State private var username = ""
     @State private var password = ""
     @State private var email = ""
     
     var body: some View {
-        NavigationView{
-            
-            //Login
+        NavigationView {
             ZStack {
-                
                 Color(red: 0.94117647, green: 0.28627451, blue: 0.6)
                     .ignoresSafeArea()
                 Circle()
@@ -57,10 +53,11 @@ struct SignUpView: View {
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
-                    NavigationLink("Next",
-                                   destination: InfoView())
                     
-                    
+                    NavigationLink("Next", destination: InfoView())
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: BackButton { /* Handle back button action if needed */ })
                 }
             }
         }
@@ -72,4 +69,3 @@ struct SignUpView_Previews: PreviewProvider {
         SignUpView()
     }
 }
-

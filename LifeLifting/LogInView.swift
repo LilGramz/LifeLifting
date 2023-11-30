@@ -15,9 +15,7 @@ struct LogInView: View {
     @State private var showingLoginScreen = false
     
     var body: some View {
-        NavigationView{
-            
-            //Login
+        NavigationView {
             ZStack {
                 Color(red: 0.28235294, green: 0.07843137, blue: 0.17647059)
                     .ignoresSafeArea()
@@ -41,7 +39,6 @@ struct LogInView: View {
                         .cornerRadius(10)
                         .border(.red, width: CGFloat(wrongUsername))
                     
-                    
                     SecureField("Password", text: $password)
                         .padding()
                         .frame(width: 300, height: 50)
@@ -49,31 +46,31 @@ struct LogInView: View {
                         .cornerRadius(10)
                         .border(.red, width: CGFloat(wrongPassword))
                     
-                    
-                    NavigationLink(destination: InfoView()) {
-                        Button("Login") {
-                            authenticateUser(username: username, password: password)
-                        }
+                    Button("Login") {
+                        authenticateUser(username: username, password: password)
                     }
                     .foregroundColor(.white)
                     .frame(width: 300, height: 50)
                     .background(Color.blue)
                     .cornerRadius(10)
                     
-                    //Sign Up Button
-                    Text ("Don't have an account?")
+                    Text("Don't have an account?")
                     
-                    NavigationLink("Sign Up",
-                                   destination: SignUpView())
-                    .navigationBarBackButtonHidden(true)
+                    NavigationLink("Sign Up", destination: SignUpView())
+                        .foregroundColor(.blue)
+                        .padding(.bottom, 20)
                     
-                    
-                    //Fix(Suggestion)
                     NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginScreen) {
                         EmptyView()
                     }
+                    .navigationBarHidden(true)
                 }
-            }.navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarItems(leading: BackButton { showingLoginScreen = false })
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: BackButton { /* Handle back button action if needed */ })
         }
     }
     
@@ -91,7 +88,6 @@ struct LogInView: View {
         }
     }
 }
-
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
