@@ -31,7 +31,7 @@ struct MaleView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                Color(red: 0.28235294, green: 0.07843137, blue: 0.17647059)
+                Color(.burgandyBG)
                     .ignoresSafeArea()
                 
                 VStack {
