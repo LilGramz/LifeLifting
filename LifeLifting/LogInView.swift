@@ -1,96 +1,90 @@
 //
-//  LMContentView.swift
-//  Life Lifting
-//
-//
+ //  LoginView.swift
+ //  Life Lifting
+ // Created by Lyah Morales
+ //
+ import SwiftUI
 
-import SwiftUI
+ struct LoginView: View {
 
-struct LogInView: View {
-    
-    @State private var username = ""
-    @State private var password = ""
-    @State private var wrongUsername: Float = 0
-    @State private var wrongPassword: Float  = 0
-    @State private var showingLoginScreen = false
-    
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color(red: 0.28235294, green: 0.07843137, blue: 0.17647059)
-                    .ignoresSafeArea()
-                Circle()
-                    .scale(1.7)
-                    .foregroundColor(.white.opacity(0.15))
-                Circle()
-                    .scale(1.35)
-                    .foregroundColor(.white)
-                
-                VStack {
-                    Text("Login")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding()
-                     
-                    TextField("Username", text: $username)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.05))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
-                    
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.05))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongPassword))
-                    
-                    Button("Login") {
-                        authenticateUser(username: username, password: password)
-                    }
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    
-                    Text("Don't have an account?")
-                    
-                    NavigationLink("Sign Up", destination: SignUpView())
-                        .foregroundColor(.blue)
-                        .padding(.bottom, 20)
-                    
-                    NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginScreen) {
-                        EmptyView()
-                    }
-                    .navigationBarHidden(true)
-                }
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading: BackButton { showingLoginScreen = false })
-            }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: BackButton { /* Handle back button action if needed */ })
-        }
-    }
-    
-    func authenticateUser(username: String, password: String) {
-        if username.lowercased() == "mario2021" {
-            wrongUsername = 0
-            if password.lowercased() == "abc123" {
-                wrongPassword = 0
-                showingLoginScreen = true
-            } else {
-                wrongPassword = 2
-            }
-        } else {
-            wrongUsername = 2
-        }
-    }
-}
+     @State private var email = ""
+     @State private var password = ""
 
-struct LogInView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogInView()
-    }
-}
+     @State private var showingLoginScreen = false
+
+     @EnvironmentObject var viewModel: AuthViewModel
+
+     var body: some View {
+         NavigationView{
+
+                 //Login
+                 ZStack {
+                                 Color.hotBarbiePink
+                                     .ignoresSafeArea()
+                                 Circle()
+                                     .scale(1.7)
+                                     .foregroundColor(.white.opacity(0.15))
+                                 Circle()
+                                     .scale(1.35)
+                                     .foregroundColor(.white)
+
+                                 VStack {
+                                     Text("Login")
+                                         .font(.largeTitle)
+                                         .bold()
+                                         .padding()
+
+                                     TextField("Email", text: $email)
+                                         .padding()
+                                         .frame(width: 300, height: 50)
+                                         .background(Color.black.opacity(0.05))
+                                         .cornerRadius(10)
+
+
+                                     SecureField("Password", text: $password)
+                                         .padding()
+                                         .frame(width: 300, height: 50)
+                                         .background(Color.black.opacity(0.05))
+                                         .cornerRadius(10)
+
+
+                                     Button {
+                                         Task {
+                                            try await viewModel.signIn(withEmail: email, password: password)
+                                         }
+                                     } label: {
+                                         HStack {
+                                             Text("Login")
+                                         }
+                                     }
+                                     .foregroundColor(.white)
+                                     .frame(width: 300, height: 50)
+                                     .background(Color.blue)
+                                     .cornerRadius(10)
+
+                                     //Sign Up Button
+                 
+                                     NavigationLink {
+                                         SignUpView()
+                                             .navigationBarBackButtonHidden(true)
+                                     } label: {
+                                         Text ("Don't have an account?")
+                                             .foregroundColor(.black)
+                                         Text ("Sign Up")
+                                             .fontWeight(.bold)
+                                     }
+
+
+                                 }
+                             }.navigationBarHidden(true)
+                         }
+                     }
+
+                 }
+
+
+         struct LoginView_Previews: PreviewProvider {
+             static var previews: some View {
+                 LoginView()
+             }
+         }

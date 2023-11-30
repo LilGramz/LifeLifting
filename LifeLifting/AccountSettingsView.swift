@@ -14,34 +14,38 @@ struct AccountSettingsView: View {
     }
     var body: some View {
         
-        
-        VStack{
-            Image(systemName: "person.crop.circle")
-       
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
             
-            ZStack {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
+            
+            VStack{
+                Image(systemName: "person.crop.circle")
+                
+                Text("Hello, World!")
+                
+                ZStack {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
+
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
             
-            
-            
-            
-            
-            
-            
-            
+            VStack {
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
+            }
             
         }
-        
-        VStack {
-            Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
-        }
-        
     }
 }
-
 #Preview {
     AccountSettingsView()
 }

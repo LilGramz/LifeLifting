@@ -26,30 +26,32 @@ struct CustomTabBar: View {
     
     var body: some View {
         
-        
-        VStack{
-            HStack{
-                ForEach(Tab.allCases, id: \.rawValue) {
-                    tab in
-                    Spacer()
-                    Image(systemName: selectedTab == tab ? fillImage : tab.rawValue.replacingOccurrences(of: "_", with: "."))
-                        .scaleEffect(selectedTab == tab ? 1.25 : 1.0)
-                        .foregroundStyle(selectedTab == tab ? Color(.softPeach) : .black)
-                        .font(.system(size: 22))
-                        .onTapGesture{
-                            withAnimation(.easeIn(duration: 0.1)) {
-                                selectedTab = tab
+        NavigationView{
+            
+            VStack{
+                HStack{
+                    ForEach(Tab.allCases, id: \.rawValue) {
+                        tab in
+                        Spacer()
+                        Image(systemName: selectedTab == tab ? fillImage : tab.rawValue.replacingOccurrences(of: "_", with: "."))
+                            .scaleEffect(selectedTab == tab ? 1.25 : 1.0)
+                            .foregroundStyle(selectedTab == tab ? Color(.softPeach) : .black)
+                            .font(.system(size: 22))
+                            .onTapGesture{
+                                withAnimation(.easeIn(duration: 0.1)) {
+                                    selectedTab = tab
+                                }
                             }
-                        }
-                    Spacer()
+                        Spacer()
+                    }
+                    
+                    
                 }
-                
-                
+                .frame(width: nil, height: 60)
+                .background(.thinMaterial)
+                .cornerRadius(10)
+                .padding()
             }
-            .frame(width: nil, height: 60)
-            .background(.thinMaterial)
-            .cornerRadius(10)
-            .padding()
         }
     }
 }
