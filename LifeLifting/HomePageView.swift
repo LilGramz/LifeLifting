@@ -10,6 +10,7 @@ import SwiftUI
 struct HomePageView: View {
     @State private var selectedTab: Tab = .house
     @State private var currentImageIndex = 0
+
     init() {
         UITabBar.appearance().isHidden = true
     }
@@ -20,13 +21,11 @@ struct HomePageView: View {
                 .ignoresSafeArea()
 
             VStack {
-                Text("Welcome Back!")
+                Text("Welcome!")
                     .foregroundColor(.softPeach)
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
-
-                Spacer()
 
                 VStack(alignment: .center, spacing: 20) {
                     Image("Motivational-quote-\(currentImageIndex + 1)")
@@ -57,7 +56,10 @@ struct HomePageView: View {
                     .padding(.horizontal)
                 }
                 .background(Rectangle().foregroundColor(.softPeach))
+                .cornerRadius(15)
                 .padding()
+
+                Spacer()
 
                 Spacer()
 
@@ -67,19 +69,18 @@ struct HomePageView: View {
     }
 
     func tapLeft() {
-        // Handle the tap left action
         if currentImageIndex > 0 {
             currentImageIndex -= 1
         }
     }
 
     func tapRight() {
-        // Handle the tap right action
-        if currentImageIndex < 7 { // Assuming there are 8 images (Motivational-quote-1 to Motivational-quote-8)
+        if currentImageIndex < 7 {
             currentImageIndex += 1
         }
     }
 }
+
 
 #if DEBUG
 struct HomePageView_Previews: PreviewProvider {

@@ -16,12 +16,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct LifeLiftingApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @StateObject private var authViewModel = AuthViewModel() // Initialize AuthViewModel as a StateObject
+
     var body: some Scene {
         WindowGroup {
             LoginView()
-            
-
+                .environmentObject(authViewModel) // Inject AuthViewModel as an environment object
         }
     }
 }

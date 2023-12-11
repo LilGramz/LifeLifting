@@ -21,8 +21,9 @@
              //Login
              ZStack {
 
-                 Color(Color.hotBarbiePink)
+                 Color(.hotBarbiePink)
                      .ignoresSafeArea()
+                     .blur(radius: 70)
                  Circle()
                      .scale(1.7)
                      .foregroundColor(.white.opacity(0.15))
@@ -57,7 +58,8 @@
 
                      //Next Button to InfoView
                      NavigationLink {
-                         InfoView()
+                         preferenceView()
+                             .navigationBarBackButtonHidden(true)
                      } label: {
                          Button {
                              Task{

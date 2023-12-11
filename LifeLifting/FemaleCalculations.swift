@@ -17,17 +17,17 @@ struct FemaleCalculations {
     var bmiResult: Double = 0
     var amrResult: Double = 0
     
-     
+    private let activityLevelDescriptions = [
+        "Sedentary (little or no exercise)",
+        "Lightly active (exercise 1–3 days/week)",
+        "Moderately active (exercise 3–5 days/week)",
+        "Active (exercise 6–7 days/week)",
+        "Very active (hard exercise 6–7 days/week)"
+    ]
+    
     mutating func calculateResults(activityLevel: Double) {
-        // Convert height to meters
-        let feetInMeters = Double(feet) * 0.3048
-        let inchesInMeters = Double(inches) * 0.0254
-        let heightInMeters = feetInMeters + inchesInMeters
-        
-        // Convert height to centimeters
-        let feetInCentimeters = Double(feet) * 30.48
-        let inchesInCentimeters = Double(inches) * 2.54
-        let heightInCentimeters = feetInCentimeters + inchesInCentimeters
+        let heightInMeters = convertToMeters(feet: feet, inches: inches)
+        let heightInCentimeters = convertToCentimeters(feet: feet, inches: inches)
         
         // Convert weight to kilograms
         let weightInKg = Double(weightInPounds) * 0.453592
@@ -40,7 +40,6 @@ struct FemaleCalculations {
         let bmi = weightInKg / (heightInMeters * heightInMeters)
         bmiResult = bmi.rounded()
         
-        
         // AMR Calculation based on activity level
         switch activityLevel {
         case 1: amrResult = (bmr * 1.2).rounded() // Sedentary (little or no exercise)
@@ -51,4 +50,17 @@ struct FemaleCalculations {
         default: amrResult = bmr.rounded()
         }
     }
+    
+    private func convertToMeters(feet: Int, inches: Int) -> Double {
+        let feetInMeters = Double(feet) * 0.3048
+        let inchesInMeters = Double(inches) * 0.0254
+        return feetInMeters + inchesInMeters
+    }
+    
+    private func convertToCentimeters(feet: Int, inches: Int) -> Double {
+        let feetInCentimeters = Double(feet) * 30.48
+        let inchesInCentimeters = Double(inches) * 2.54
+        return feetInCentimeters + inchesInCentimeters
+    }
 }
+
