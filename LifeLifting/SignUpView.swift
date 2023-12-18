@@ -58,7 +58,7 @@
 
                      //Next Button to InfoView
                      NavigationLink {
-                         preferenceView()
+                         PreferenceView()
                              .navigationBarBackButtonHidden(true)
                      } label: {
                          Button {

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct preferenceView: View {
+struct PreferenceView: View {
     
     @State private var gender = " "
     @State private var age = " "
@@ -87,8 +87,8 @@ struct preferenceView: View {
 }
 
 
-struct preferenceView_Previews: PreviewProvider {
+struct PreferenceView_Previews: PreviewProvider {
     static var previews: some View {
-        preferenceView()
+        PreferenceView()
     }
 }
